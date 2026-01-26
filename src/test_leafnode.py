@@ -1,5 +1,5 @@
 import unittest
-from htmlnode import ParentNode, HTMLNode, LeafNode
+from htmlnode import HTMLNode, LeafNode, ParentNode
 
 
 class TestLeafNode(unittest.TestCase):
@@ -81,3 +81,5 @@ class TestLeafNode(unittest.TestCase):
         node = LeafNode("p", None)
         with self.assertRaises(ValueError):
             node.to_html()
+if __name__ == "__main__":
+    unittest.main()
