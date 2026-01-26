@@ -1,6 +1,6 @@
 import unittest
 from htmlnode import HTMLNode, LeafNode, ParentNode
-
+from textnode import TextNode, TextType, text_node_to_html_node
 
 class TestHTMLNode(unittest.TestCase):
     def test_props_to_html_not_none(self):
@@ -34,9 +34,7 @@ class TestHTMLNode(unittest.TestCase):
         expected = f"HTMLNode object:\ntag={None},\nvalue={None},\nchildren={chilren},\nprops={None}"
         node1 = HTMLNode(children=chilren)
         self.assertEqual(expected, repr(node1))
-        
-    
-    
+
 
 
 if __name__ == "__main__":
