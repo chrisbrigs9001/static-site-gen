@@ -1,6 +1,6 @@
 import unittest
 
-from htmlnode import HTMLNode
+from htmlnode import HTMLNode, LeafNode
 
 
 class TestHTMLNode(unittest.TestCase):
@@ -35,6 +35,10 @@ class TestHTMLNode(unittest.TestCase):
         expected = f"HTMLNode object:\ntag={None},\nvalue={None},\nchildren={chilren},\nprops={None}"
         node1 = HTMLNode(children=chilren)
         self.assertEqual(expected, repr(node1))
+        
+    
+    
+
 
 if __name__ == "__main__":
     unittest.main()
