@@ -22,6 +22,19 @@ class BlockType(Enum):
     UNORDERD_LIST = "unordered list"
     ORDERED_LIST = "ordered list"
 
+def extract_title(markdown):
+    #It should pull the h1 header from the markdown file (the line that starts with a single #) and return it.
+    #If there is no h1 header, raise an exception.
+    #extract_title("# Hello") should return "Hello" (strip the # and any leading or trailing whitespace)
+    blocks = markdown_to_blocks(markdown)
+    for b in blocks:
+        if block_to_block_type(b) == BlockType.HEADING:
+            if b.startswith(("# ")):
+                return b[2:]
+    raise Exception("No h1")
+            
+
+
 
 def markdown_to_blocks(markdown):
     blocks = markdown.split("\n\n")
