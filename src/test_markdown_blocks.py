@@ -196,6 +196,19 @@ the **same** even with inline stuff
         with self.assertRaises(Exception):
             test_value = extract_title(md)
             
+    def test_extract_title_multi_lines(self):
+        md = """
+# this is an h1
+
+this is paragraph text
+
+## this is an h2
+"""
+        test_value = extract_title(md)
+        self.assertEqual(
+            test_value,
+            "this is an h1"
+        )   
     
 
 if __name__ == "__main__":

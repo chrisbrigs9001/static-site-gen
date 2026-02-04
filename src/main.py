@@ -1,7 +1,7 @@
 from textnode import *
 import os
 import shutil
-
+from gen_c import copy_content, generate_page
 
 
 def main():
@@ -13,24 +13,12 @@ def main():
     if os.path.exists(dst):
         shutil.rmtree(dst)
 
-    print("Copying static files to public directory...")
+    #print("Copying static files to public directory...")
     copy_content(src, dst)
-    
-    
-    
-    
-def copy_content(source_dir_path, dest_dir_path):
-    if not os.path.exists(dest_dir_path):
-        os.mkdir(dest_dir_path)
+    generate_page(os.path.join("./content", "index.md"),
+                  "./template.html",
+                  os.path.join("./public", "index.html"),
+    )
 
-    for filename in os.listdir(source_dir_path):
-        from_path = os.path.join(source_dir_path, filename)
-        dest_path = os.path.join(dest_dir_path, filename)
-        print(f" * {from_path} -> {dest_path}")
-        if os.path.isfile(from_path):
-            shutil.copy(from_path, dest_path)
-        else:
-            copy_content(from_path, dest_path)
-    
     
 main()
