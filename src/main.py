@@ -20,5 +20,4 @@ def main():
                   os.path.join("./public", "index.html"),
     )
 
-
 main()
